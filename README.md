@@ -7,19 +7,13 @@
 1. [Introduction](#introduction)
 2. [Features](#features)
 3. [Technologies Used](#technologies-used)
-4. [Getting Started](#getting-started)
-   - [Prerequisites](#prerequisites)
-   - [Installation](#installation)
-5. [User Authentication](#user-authentication)
-6. [Task Management](#task-management)
+4. [User Authentication](#user-authentication)
+5. [Task Management](#task-management)
    - [Task CRUD Operations](#task-crud-operations)
    - [Task Display and Filters](#task-display-and-filters)
-7. [Backend Integration with MockAPI.io](#backend-integration-with-mockapiio)
+6. [Backend Integration with MockAPI.io](#backend-integration-with-mockapiio)
    - [MockAPI.io Setup](#mockapiio-setup)
    - [Ajax Requests](#ajax-requests)
-8. [User Interface](#user-interface)
-9. [Conclusion](#conclusion)
-10. [Acknowledgments](#acknowledgments)
 
 ## 1. Introduction
 The Task Manager web application is designed to provide user with a platform for managing their tasks efficiently. User can sign up, sign in, and perform various task operations such as creating, updating, deleting, and reading tasks. The application utilizes MockAPI.io as the backend to handle task data.
