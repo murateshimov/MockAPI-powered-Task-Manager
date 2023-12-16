@@ -31,7 +31,7 @@ The Task Manager web application is designed to provide users with a platform fo
 - User-friendly and visually pleasing user interface.
 
 ## 3. Technologies Used
-- HTML
+- HTML 
 - CSS
 - JavaScript
 - Bootstrap 5
@@ -46,7 +46,7 @@ The Task Manager web application is designed to provide users with a platform fo
 - Code editor (e.g., Visual Studio Code)
 
 ### 4.2 Installation
-1. Clone the repository: `git clone https://github.com/your-username/task-manager.git`
+1. Clone the repository: `git clone https://github.com/murateshimov/MockAPI-powered-Task-Manager.git`
 2. Open the project in your code editor.
 
 ## 5. User Authentication
