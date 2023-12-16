@@ -179,6 +179,14 @@
             .catch((error) => console.error("Error deleting task:", error));
         }
       }
+
+      const signoutButton = document.getElementById("signoutbutton");
+      if (signoutButton) {
+        signoutButton.addEventListener("click", () => {
+        // Redirect to signin.html
+        window.location.href = "index.html";
+      });
+      }
     </script>
   </body>
 </html>
