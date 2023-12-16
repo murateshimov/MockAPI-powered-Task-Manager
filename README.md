@@ -1,6 +1,4 @@
-# MockAPI-powered-Task-Manager
-
-# Task Manager Web Application
+# Task Manager Web Application with MockAPI
 
 ## Table of Contents
 1. [Introduction](#introduction)
