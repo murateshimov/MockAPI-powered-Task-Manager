@@ -21,7 +21,8 @@
 10. [Acknowledgments](#acknowledgments)
 
 
-## [Link to project](https://murateshimov.github.io/MockAPI-powered-Task-Manager/index.html)
+[Link to project](https://murateshimov.github.io/MockAPI-powered-Task-Manager/index.html)
+[Link to MockAPI](https://mockapi.io/clone/657dd0fa3e3f5b189463345b)
 
 ## 1. Introduction
 The Task Manager web application is designed to provide users with a platform for managing their tasks efficiently. Users can sign up, log in, and perform various task operations such as creating, updating, deleting, and marking tasks as completed. The application utilizes MockAPI.io as the backend to handle task data.
