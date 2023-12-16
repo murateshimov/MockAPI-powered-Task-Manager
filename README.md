@@ -1,4 +1,4 @@
-# Task Manager Web Application 
+# Task Manager Web App with Mock API
 
 ## Table of Contents
 1. [Introduction](#introduction)
