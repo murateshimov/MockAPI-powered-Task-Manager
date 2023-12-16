@@ -1,21 +1,184 @@
-<!-- tasks.html -->
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <!-- ... your head elements ... -->
-  <title>Tasks</title>
-</head>
-<body>
-  <h1>Welcome to the Task Manager!</h1>
-  <div id="user-info">
-    <!-- User information will be displayed here -->
-  </div>
-  <!-- ... your tasks content ... -->
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
-  <script src="firebase-config.js"></script>
-  <script src="tasks.js"></script>
-</body>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <title>Task Manager</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Task Manager</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end">
+          <!-- Sign Out button -->
+          <button
+            class="btn btn-outline-primary"
+            type="button"
+            id="signoutbutton"
+          >
+            Sign Out
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-4">
+      <h2 class="text-center">Task Manager</h2>
+
+      <!-- Add Task Form -->
+      <div class="row mt-4">
+        <div class="col-md-6 offset-md-3">
+          <div class="mb-3">
+            <label for="taskInput" class="form-label">New Task</label>
+            <input
+              type="text"
+              class="form-control"
+              id="taskInput"
+              placeholder="Enter task"
+            />
+          </div>
+          <button class="btn btn-success" btn-lg onclick="addTask()">
+            Add Task
+          </button>
+        </div>
+      </div>
+
+      <!-- Task List -->
+      <div class="row mt-4">
+        <div class="col-md-6 offset-md-3">
+          <h3>Task List</h3>
+          <ul class="list-group" id="taskList">
+            <!-- Tasks will be dynamically added here -->
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS (optional, for certain components) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      const apiEndpoint = "https://657dd0fa3e3f5b189463345a.mockapi.io/tasks"; // Replace with your MockAPI.io endpoint
+
+      document.addEventListener("DOMContentLoaded", () => {
+        fetchTasks();
+      });
+
+      function fetchTasks() {
+        fetch(apiEndpoint)
+          .then((response) => response.json())
+          .then((tasks) => {
+            displayTasks(tasks);
+          })
+          .catch((error) => console.error("Error fetching tasks:", error));
+      }
+
+      function displayTasks(tasks) {
+        const taskList = document.getElementById("taskList");
+        taskList.innerHTML = ""; // Clear existing tasks
+
+        tasks.forEach((task) => {
+          const listItem = document.createElement("li");
+          listItem.className =
+            "list-group-item d-flex justify-content-between align-items-center";
+          listItem.textContent = task.title;
+
+          const buttonsContainer = document.createElement("div");
+          buttonsContainer.className = "d-flex";
+
+          const updateButton = document.createElement("button");
+          updateButton.className = "btn btn-warning btn-sm mx-2";
+          updateButton.textContent = "Update";
+          updateButton.addEventListener("click", () =>
+            updateTask(task.id, task.title)
+          );
+
+          const deleteButton = document.createElement("button");
+          deleteButton.className = "btn btn-danger btn-sm";
+          deleteButton.textContent = "Delete";
+          deleteButton.addEventListener("click", () => deleteTask(task.id));
+
+          buttonsContainer.appendChild(updateButton);
+          buttonsContainer.appendChild(deleteButton);
+
+          listItem.appendChild(buttonsContainer);
+
+          taskList.appendChild(listItem);
+        });
+      }
+
+      function addTask() {
+        const taskInput = document.getElementById("taskInput");
+        const newTask = { title: taskInput.value };
+
+        fetch(apiEndpoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newTask),
+        })
+          .then((response) => response.json())
+          .then(() => {
+            fetchTasks(); // Refresh the task list after adding a new task
+            taskInput.value = ""; // Clear the input
+          })
+          .catch((error) => console.error("Error adding task:", error));
+      }
+
+      function updateTask(taskId, currentTitle) {
+        const updatedTitle = prompt("Update task:", currentTitle);
+
+        if (updatedTitle) {
+          const updatedTask = { title: updatedTitle };
+
+          fetch(`${apiEndpoint}/${taskId}`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(updatedTask),
+          })
+            .then((response) => response.json())
+            .then(fetchTasks) // Refresh the task list after updating a task
+            .catch((error) => console.error("Error updating task:", error));
+        }
+      }
+
+      function deleteTask(taskId) {
+        if (confirm("Are you sure you want to delete this task?")) {
+          fetch(`${apiEndpoint}/${taskId}`, {
+            method: "DELETE",
+          })
+            .then(fetchTasks) // Refresh the task list after deleting a task
+            .catch((error) => console.error("Error deleting task:", error));
+        }
+      }
+    </script>
+  </body>
 </html>
