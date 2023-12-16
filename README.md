@@ -1,6 +1,6 @@
 # Task Manager Web App with Mock API
 
-https://youtu.be/rvvD8n76M7M
+[![Demo Video](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=rvvD8n76M7M)
 
 ## Table of Contents
 1. [Introduction](#introduction)
