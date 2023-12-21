@@ -4,20 +4,9 @@
 
 [![Video Demo of Project](https://img.youtube.com/vi/rvvD8n76M7M/maxresdefault.jpg)](https://www.youtube.com/watch?v=rvvD8n76M7M)
 
-## Table of Contents
-1. [Introduction](#introduction)
-2. [Features](#features)
-3. [Technologies Used](#technologies-used)
-4. [User Authentication](#user-authentication)
-5. [Task Management](#task-management)
-   - [Task CRUD Operations](#task-crud-operations)
-   - [Task Display and Filters](#task-display-and-filters)
-6. [Backend Integration with MockAPI.io](#backend-integration-with-mockapiio)
-   - [MockAPI.io Setup](#mockapiio-setup)
-   - [Ajax Requests](#ajax-requests)
 
 ## 1. Introduction
-The Task Manager web application is designed to provide user with a platform for managing their tasks efficiently. User can sign up, sign in, and perform various task operations such as creating, updating, deleting, and reading tasks. The application utilizes MockAPI.io as the backend to handle task data.
+The Task Manager web application is designed to provide users with a platform for managing their tasks efficiently. Users can sign up, sign in, and perform various task operations such as creating, updating, deleting, and reading tasks. The application utilizes MockAPI.io as the backend to handle task data.
 
 
 ## 2. Features
@@ -53,8 +42,8 @@ Users can perform the following operations on tasks:
 ## 6. Backend Integration with MockAPI.io
 
 ### 6.1 MockAPI.io Setup
-- Clone the MockAPI.io project to your account.
-- Configure the API endpoint in the JavaScript code.
+- MockAPI.io facilitates the simulation of a backend for task manager applications, enabling developers to mock responses and test scenarios.
+- It streamlines API design, supports offline development, and aids in testing various application states.
 
 ### 6.2 Ajax Requests
-Ajax requests are used to fetch and send data between the frontend and MockAPI.io, enabling seamless interaction with the backend.
+Ajax requests are used to fetch and send data between the Frontend and MockAPI.io, enabling seamless interaction with the Backend.
