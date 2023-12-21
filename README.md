@@ -1,7 +1,7 @@
 # [Task Manager Web App with Mock API](https://murateshimov.github.io/MockAPI-powered-Task-Manager/)
 
 
-[Video Demo of Project](https://www.youtube.com/watch?v=rvvD8n76M7M)
+[![Video Demo of Project](https://img.youtube.com/vi/rvvD8n76M7M/maxresdefault.jpg)](https://www.youtube.com/watch?v=rvvD8n76M7M)
 
 ## Table of Contents
 1. [Introduction](#introduction)
