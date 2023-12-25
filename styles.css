@@ -9,3 +9,6 @@ input[type="password"] {
     border-top: 0;
 }
 
+body {
+    cursor: url(img/icons8-cursor-50.png), auto;
+}
