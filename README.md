@@ -1,10 +1,5 @@
 # Task Manager Web App with Mock API
 
-## Video Demonstration 
-
-[![Video Demo of Project](https://img.youtube.com/vi/rvvD8n76M7M/maxresdefault.jpg)](https://www.youtube.com/watch?v=rvvD8n76M7M)
-
-
 ## 1. Introduction
 The Task Manager web application is designed to provide users with a platform for managing their tasks efficiently. Users can sign up, sign in, and perform various task operations such as creating, updating, deleting, and reading tasks. The application utilizes MockAPI.io as the backend to handle task data.
 
